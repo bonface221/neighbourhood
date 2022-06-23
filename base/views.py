@@ -6,6 +6,8 @@ from django.views.generic.edit import CreateView
 from django.shortcuts import redirect
 from .models import Profile,Neighborhoods_cool
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -49,6 +51,7 @@ def home(request):
     
     return render(request,'base/home.html',context)
 
+@login_required(login_url=('login'))
 def neighbor(request,id):
     neighbor = Neighborhoods_cool.objects.get(id=id)
    

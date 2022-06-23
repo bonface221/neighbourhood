@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito:wght@200;300;400;500;600&display=swap");
+*{
+	font-family: "Nunito", sans-serif;
+    padding: 0;margin:0;
+    box-sizing: border-box;
+    transition: 0.3s cubic-bezier(0.38, 1.15, 0.7, 1.12);
+    text-decoration: none;
+}
+.home-container{
+    background:linear-gradient(90deg, #fff, transparent), url(../images/neighbor1.jpg),no-repeat;
+    min-height: 50vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+.home-container .content {
+	flex-basis: 40rem;
+    margin: 0 5%;
+}
+.home-container .content p {
+	color: #333;
+	font-size: 2.5rem;
+    font-family: 'Merienda One',cursive;
+
+}

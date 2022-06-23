@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Neighborhoods_cool
+from .models import Message, Neighborhoods_cool
 
 class NewUserForm(UserCreationForm):
 	email = forms.EmailField(required=True)
@@ -23,3 +23,8 @@ class NeighbourhoodForm(forms.ModelForm):
 		model = Neighborhoods_cool
 		fields=['name','picture', 'location','description','health_contact','police_contact']
 	
+
+class MessageForm(forms.ModelForm):
+	class Meta:
+		model =Message
+		fields = ['body']

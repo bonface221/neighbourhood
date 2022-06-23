@@ -1,9 +1,10 @@
+
 from django.shortcuts import render
 from django.contrib.auth.views import LoginView
 from .forms import NewUserForm, NeighbourhoodForm
 from django.views.generic.edit import CreateView
 from django.shortcuts import redirect
-from .models import Profile, Businesses,Message,Neighborhoods_cool
+from .models import Profile,Neighborhoods_cool
 from django.contrib.auth import logout
 
 
@@ -43,7 +44,23 @@ def home(request):
 
     posts = Neighborhoods_cool.objects.all()
 
+
     context=dict(form=form,posts=posts)
     
     return render(request,'base/home.html',context)
 
+def neighbor(request,id):
+    neighbor = Neighborhoods_cool.objects.get(id=id)
+   
+    context=dict(neighbor=neighbor)
+
+    return render(request,'base/neighborhood.html',context)
+
+
+def userProfile(request,pk):
+    user= Profile.objects.get(user=pk)
+    neighborhoods = user.neighborhoods_cool_set.all()
+    messages = user.message_set.all()
+    context=dict(user=user,neighborhoods=neighborhoods,messages=messages)
+
+    return render( request , 'base/profile.html' ,context)

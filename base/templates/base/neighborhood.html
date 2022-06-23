@@ -1,8 +1,17 @@
-{% extends 'main.html' %} {% block content %}
-<div class="container">
+{% extends 'main.html' %}
+{% load crispy_forms_tags %} 
+
+ {% block content %}
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-8">
-
+            <img src="{{neighbor.picture.url}}" class="img-fluid">
+            <p>name: {{neighbor.name}}</p>
+            <p>Found in: {{neighbor.location}}</p>
+            <h5>contact information</h5>
+            <hr>
+            <p>Health contact: {{neighbor.health_contact}}</p>
+            <p>Administration contact: {{neighbor.police_contact}}</p>
     </div>
     <div class="col-md-4">
         
